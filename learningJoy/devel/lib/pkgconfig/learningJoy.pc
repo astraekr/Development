@@ -1,0 +1,8 @@
+prefix=/home/alastair/Development/learningJoy/devel
+
+Name: learningJoy
+Description: Description of learningJoy
+Version: 0.0.0
+Cflags: 
+Libs: -L/home/alastair/Development/learningJoy/devel/lib 
+Requires: 

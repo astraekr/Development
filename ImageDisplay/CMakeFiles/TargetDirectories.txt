@@ -1,0 +1,3 @@
+/home/alastair/Development/ImageDisplay/CMakeFiles/edit_cache.dir
+/home/alastair/Development/ImageDisplay/CMakeFiles/rebuild_cache.dir
+/home/alastair/Development/ImageDisplay/CMakeFiles/DisplayImage.dir

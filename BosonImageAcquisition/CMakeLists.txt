@@ -1,0 +1,5 @@
+cmake_minimum_required(VERSION 2.8)
+project(GetBosonImage)
+find_package (OpenCV REQUIRED)
+add_executable( GetBosonImage GetBosonImage.cpp )
+target_link_libraries ( GetBosonImage ${OpenCV_LIBS} )

@@ -1,0 +1,3 @@
+/home/alastair/Development/superimpose/CMakeFiles/edit_cache.dir
+/home/alastair/Development/superimpose/CMakeFiles/rebuild_cache.dir
+/home/alastair/Development/superimpose/CMakeFiles/SuperImpose.dir

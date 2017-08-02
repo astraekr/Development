@@ -1,0 +1,5 @@
+cmake_minimum_required(VERSION 2.8)
+project(StereoCalibration)
+find_package (OpenCV REQUIRED)
+add_executable( StereoCalibration stereo_calib.cpp )
+target_link_libraries ( StereoCalibration ${OpenCV_LIBS} )

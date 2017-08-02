@@ -1,0 +1,3 @@
+/home/alastair/Development/Stereo Calib/StereoCalib/CMakeFiles/edit_cache.dir
+/home/alastair/Development/Stereo Calib/StereoCalib/CMakeFiles/rebuild_cache.dir
+/home/alastair/Development/Stereo Calib/StereoCalib/CMakeFiles/StereoCalibration.dir

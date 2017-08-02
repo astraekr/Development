@@ -1,0 +1,3 @@
+/home/alastair/Development/ImageCapture/CMakeFiles/edit_cache.dir
+/home/alastair/Development/ImageCapture/CMakeFiles/rebuild_cache.dir
+/home/alastair/Development/ImageCapture/CMakeFiles/ImageCapture.dir

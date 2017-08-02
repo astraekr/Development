@@ -1,0 +1,2 @@
+learningJoy
+-DCATKIN_DEVEL_PREFIX=/home/alastair/Development/learningJoy/devel -DCMAKE_INSTALL_PREFIX=/home/alastair/Development/learningJoy/install -G Unix Makefiles

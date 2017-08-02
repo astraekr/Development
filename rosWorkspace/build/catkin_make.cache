@@ -1,0 +1,2 @@
+myahrs_driver
+-DCATKIN_DEVEL_PREFIX=/home/alastair/Development/rosWorkspace/devel -DCMAKE_INSTALL_PREFIX=/home/alastair/Development/rosWorkspace/install -G Unix Makefiles
