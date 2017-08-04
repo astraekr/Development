@@ -60,7 +60,7 @@ int main()
     /* Locates the first attached UVC device, stores in dev */
     res = uvc_find_device(
         ctx, &dev,
-        10667, 251, NULL); /* filter devices: vendor_id, product_id, "serial_num" */
+        NULL, NULL, NULL); /* filter devices: vendor_id, product_id, "serial_num" */
     if (res < 0)
     {
         uvc_perror(res, "uvc_find_device"); /* no devices found */
