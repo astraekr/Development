@@ -1,0 +1,3 @@
+/home/alastair/Development/GetBoson/CMakeFiles/edit_cache.dir
+/home/alastair/Development/GetBoson/CMakeFiles/rebuild_cache.dir
+/home/alastair/Development/GetBoson/CMakeFiles/GetBoson.dir
