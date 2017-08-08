@@ -27,8 +27,8 @@ using namespace std;
 
 //NOTE set these to appropriate values 320x256??
 //what is kcurve data?
-static const int kCaptureWidth = 320;  //resolution
-static const int kCaptureHeight = 256;
+static const int kCaptureWidth = 640;  //resolution
+static const int kCaptureHeight = 512;
 static const int kCaptureFPS = 0;  //frame/s
 static const char kCurveData[8] = {250, 0, 240, 0, 250, 0, 240, 0};
 
@@ -133,7 +133,7 @@ int main()
             //NOTE figure out what this does
             res = uvc_get_stream_ctrl_format_size(
                     devh, &ctrl,                /* result stored in ctrl */
-                    uvcFormat,      /* YUV 422, aka YUV 4:2:2. try _COMPRESSED */
+                    UVC_FRAME_FORMAT_I420,      /* YUV 422, aka YUV 4:2:2. try _COMPRESSED */
                     kCaptureWidth, kCaptureHeight, kCaptureFPS /* width, height, fps */
                     );
 
@@ -169,7 +169,7 @@ int main()
                         }
                         if((char)key == 'o')
                         {
-                            setLights(devh, 0);
+                            //setLights(devh, 0);
                         }
                         if((char)key == 'p')
                         {

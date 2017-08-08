@@ -94,7 +94,7 @@ GetBoson: /usr/local/lib/libopencv_shape.so.3.2.0
 GetBoson: /usr/local/lib/libopencv_stitching.so.3.2.0
 GetBoson: /usr/local/lib/libopencv_superres.so.3.2.0
 GetBoson: /usr/local/lib/libopencv_videostab.so.3.2.0
-GetBoson: /usr/local/lib/x86_64-linux-gnu/libuvc.so
+GetBoson: /usr/local/lib/libuvc.so
 GetBoson: /usr/local/lib/libopencv_objdetect.so.3.2.0
 GetBoson: /usr/local/lib/libopencv_calib3d.so.3.2.0
 GetBoson: /usr/local/lib/libopencv_features2d.so.3.2.0
