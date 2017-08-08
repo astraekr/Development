@@ -3,6 +3,7 @@
 
 CMakeFiles/GetBoson.dir/main.cpp.o
  /home/alastair/Development/GetBoson/main.cpp
+ /usr/local/include/libusb-1.0/libusb.h
  /usr/local/include/libuvc/libuvc.h
  /usr/local/include/libuvc/libuvc_config.h
  /usr/local/include/opencv/cxcore.h
