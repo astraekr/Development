@@ -141,17 +141,26 @@ struct format_table_entry *_get_format_entry(enum uvc_frame_format format) {
 static uint8_t _uvc_frame_format_matches_guid(enum uvc_frame_format fmt, uint8_t guid[16]) {
   struct format_table_entry *format;
   int child_idx;
+  int i = 0;
+
 
   format = _get_format_entry(fmt);
   if (!format)
     return 0;
 
+
   if (!format->abstract_fmt && !memcmp(guid, format->guid, 16))
+  {
+
+
     return 1;
+  }
 
   for (child_idx = 0; child_idx < format->children_count; child_idx++) {
     if (_uvc_frame_format_matches_guid(format->children[child_idx], guid))
+    {
       return 1;
+    }
   }
 
   return 0;
@@ -366,19 +375,28 @@ uvc_error_t uvc_get_stream_ctrl_format_size(
     int fps) {
   uvc_streaming_interface_t *stream_if;
 
+
   /* find a matching frame descriptor and interval */
   DL_FOREACH(devh->info->stream_ifs, stream_if) {
     uvc_format_desc_t *format;
+    //printf("For stream\n");
 
     DL_FOREACH(stream_if->format_descs, format) {
       uvc_frame_desc_t *frame;
+      //printf("For format\n");
 
       if (!_uvc_frame_format_matches_guid(cf, format->guidFormat))
+      {
+        printf("Did not match frame format and guid\n");
         continue;
+      }
 
       DL_FOREACH(format->frame_descs, frame) {
         if (frame->wWidth != width || frame->wHeight != height)
+        {
+          printf("Did not match widths and heights\n");
           continue;
+        }
 
         uint32_t *interval;
 
@@ -428,7 +446,7 @@ uvc_error_t uvc_get_stream_ctrl_format_size(
       }
     }
   }
-
+  printf("Invalid mode being returned\n");
   return UVC_ERROR_INVALID_MODE;
 
 found:

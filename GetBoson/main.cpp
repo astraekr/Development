@@ -29,6 +29,8 @@ using namespace std;
 //what is kcurve data?
 static const int kCaptureWidth = 640;  //resolution
 static const int kCaptureHeight = 512;
+static const int kCaptureWidth2 = 320;  //resolution
+static const int kCaptureHeight2 = 256;
 static const int kCaptureFPS = 0;  //frame/s
 static const char kCurveData[8] = {250, 0, 240, 0, 250, 0, 240, 0};
 
@@ -36,34 +38,42 @@ static const char kCurveData[8] = {250, 0, 240, 0, 250, 0, 240, 0};
  * quick processing you need, or have it put the frame into your application's
  * input queue. If this function takes too long, you'll start losing frames. */
 void cb(uvc_frame_t *frame, void *stopPtr) {
-  cv::Mat cvFrame(frame->height, frame->width, CV_16UC1, frame->data);
-  cvFrame.convertTo(cvFrame, CV_16U, 100, 0);
-  imshow("main", cvFrame);
+
+    uvc_frame_t *bgr;
+    IplImage *cvImg;
+
+    //printf("Here\n");
+
+    //bgr = uvc_allocate_frame(frame->width * frame->height * 3);
+
+
+    //uvc_any2bgr(frame, bgr);
+
+    Mat image (frame->height, frame->width, CV_16UC1, frame->data);
+
+    /*cvImg = cvCreateImageHeader(
+         cvSize(bgr->width, bgr->height),
+         IPL_DEPTH_8U,
+         3);
+    cvSetData(cvImg, bgr->data, bgr->width * 3);*/
+
+    cvNamedWindow("Test", CV_WINDOW_AUTOSIZE);
+
+    imshow("Test", image);
+    //cvShowImage("Test", cvImg);
+
+    cvWaitKey(10);
+
+    //cvReleaseImageHeader(&cvImg);
+
+    //Mat cvFrame(frame->height, frame->width, CV_16UC1, frame->data);
+    //cvFrame.convertTo(cvFrame, CV_16U, 100, 0);
+    //imshow("main", cvFrame);
+
+    //uvc_free_frame(frame);
+    //uvc_free_frame(bgr);
 }
 
-void setLights(uvc_device_handle_t *devh, int lights) {
-  uvc_set_ctrl(devh, 3, 3, (void*)(&lights), 2);
-}
-
-void setupParams(uvc_device_handle_t *devh) {
-  uvc_set_ctrl(devh, 3, 4, (void*)(kCurveData), 8);
-}
-/*
-uint8_t open_port(libusb_device_handle *devh){
-
-    int rc;
-     We only need to deal with the CDC data interface on Boson, it has sane control defaults
-    if (libusb_kernel_driver_active(devh, IF_CDC_DATA)) {
-        libusb_detach_kernel_driver(devh, IF_CDC_DATA);
-    }
-    rc = libusb_claim_interface(devh, IF_CDC_DATA);
-    if (rc < 0) {
-        fprintf(stderr, "Error claiming interface: %s\n",
-                libusb_error_name(rc));
-    }
-
-    return (uint8_t) rc; // 0 == success.
-}*/
 
 int main()
 {
@@ -75,11 +85,6 @@ int main()
     uvc_stream_ctrl_t ctrl;
     uvc_error_t res;
     uvc_device_descriptor_t *desc;
-    //ask tom why this doesn't work
-    //enum uvc_frame_format uvcFormat = UVC_FRAME_FORMAT_I420;
-
-    enum uvc_frame_format uvcFormat = (uvc_frame_format) 5;
-
 
     res = uvc_init(&ctx, NULL);
     if (res < 0)
@@ -87,7 +92,7 @@ int main()
         uvc_perror(res, "uvc_init");  //error initialize
         return res;
     }
-    cv::namedWindow("main",CV_WINDOW_NORMAL);
+    //cv::namedWindow("main",CV_WINDOW_NORMAL);
 
     puts("UVC initialized");
 
@@ -131,12 +136,15 @@ int main()
                 /* Try to negotiate a YUYV stream profile */
             uvc_stop_streaming(devh);
             //NOTE figure out what this does
+            printf("uvc_get_stream_ctrl_format_size\n");
             res = uvc_get_stream_ctrl_format_size(
                     devh, &ctrl,                /* result stored in ctrl */
-                    UVC_FRAME_FORMAT_I420,      /* YUV 422, aka YUV 4:2:2. try _COMPRESSED */
-                    kCaptureWidth, kCaptureHeight, kCaptureFPS /* width, height, fps */
+                    //UVC_FRAME_FORMAT_I420,    /* YUV 422, aka YUV 4:2:2. try _COMPRESSED */
+                    UVC_FRAME_FORMAT_Y16,       /*FOR UNADJUSTED OUTPUT*/
+                    kCaptureWidth2, kCaptureHeight2, kCaptureFPS /* width, height, fps */
                     );
 
+            printf("Printing stream ctrl:--------\n");
             uvc_print_stream_ctrl(&ctrl, stderr);
 
             if (res < 0)
@@ -145,12 +153,13 @@ int main()
             }
             else
             {
-                //setLights(devh, 0xb1111);
+
                 int stop = 0;
                 /* Start the video stream. The library will call user function cb:
                 *   cb(frame, (void*) 0)
                 */
                 res = uvc_start_streaming(devh, &ctrl, cb, (void*)(&stop), 0);
+                //res = uvc_start_streaming(devh, &ctrl, cb, 12345, 0);
                 if (res < 0)
                 {
                     uvc_perror(res, "start_streaming"); /* unable to start stream */
@@ -159,29 +168,23 @@ int main()
                 {
                     puts("Streaming...");
 
+                    sleep(20);
+
                     // uvc_set_ae_mode(devh, 1); /* e.g., turn on auto exposure */
-                    while(true)
+                    /*while(true)
                     {
                         int key = cv::waitKey(10);
                         if((char)key == 'q')
                         {
                             break;
                         }
-                        if((char)key == 'o')
-                        {
-                            //setLights(devh, 0);
-                        }
-                        if((char)key == 'p')
-                        {
-                            setupParams(devh);
-                        }
                         if((char)key == 'g')
                         {
                             uvc_set_gain(devh, 25);
                         }
-                    }
+                    }*/
                     //setLights(devh, 0);
-                    //Sleep(1);
+
                     /* End the stream. Blocks until last callback is serviced */
                     uvc_stop_streaming(devh);
                     puts("Done streaming.");

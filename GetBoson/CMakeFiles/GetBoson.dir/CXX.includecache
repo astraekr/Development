@@ -43,11 +43,11 @@ windows.h
 /usr/local/include/libuvc/libuvc.h
 stdio.h
 -
-stdint.h
--
-sys/time.h
+libusb-1.0/libusb.h
 -
 libuvc/libuvc_config.h
+-
+errno.h
 -
 
 /usr/local/include/libuvc/libuvc_config.h

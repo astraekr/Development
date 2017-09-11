@@ -1,8 +1,0 @@
-/home/alastair/Development/GetBoson/libuvc/CMakeFiles/install.dir
-/home/alastair/Development/GetBoson/libuvc/CMakeFiles/list_install_components.dir
-/home/alastair/Development/GetBoson/libuvc/CMakeFiles/rebuild_cache.dir
-/home/alastair/Development/GetBoson/libuvc/CMakeFiles/edit_cache.dir
-/home/alastair/Development/GetBoson/libuvc/CMakeFiles/uvc.dir
-/home/alastair/Development/GetBoson/libuvc/CMakeFiles/uvcstatic.dir
-/home/alastair/Development/GetBoson/libuvc/CMakeFiles/install/strip.dir
-/home/alastair/Development/GetBoson/libuvc/CMakeFiles/install/local.dir
