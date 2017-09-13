@@ -41,8 +41,9 @@ void cb(uvc_frame_t *frame, void *stopPtr) {
 
     uvc_frame_t *bgr;
     IplImage *cvImg;
+    int ret = 0;
 
-    //printf("Here\n");
+    printf("Here\n");
 
     //bgr = uvc_allocate_frame(frame->width * frame->height * 3);
 
@@ -56,6 +57,10 @@ void cb(uvc_frame_t *frame, void *stopPtr) {
          IPL_DEPTH_8U,
          3);
     cvSetData(cvImg, bgr->data, bgr->width * 3);*/
+
+    ret = imwrite("test.png", image);
+
+    printf("Ret = %i",ret);
 
     cvNamedWindow("Test", CV_WINDOW_AUTOSIZE);
 
@@ -155,39 +160,52 @@ int main()
             {
 
                 int stop = 0;
+                int key = 0;
                 /* Start the video stream. The library will call user function cb:
                 *   cb(frame, (void*) 0)
                 */
-                res = uvc_start_streaming(devh, &ctrl, cb, (void*)(&stop), 0);
-                //res = uvc_start_streaming(devh, &ctrl, cb, 12345, 0);
-                if (res < 0)
+                while(true)
                 {
-                    uvc_perror(res, "start_streaming"); /* unable to start stream */
-                }
-                else
-                {
-                    puts("Streaming...");
-
-                    sleep(20);
-
-                    // uvc_set_ae_mode(devh, 1); /* e.g., turn on auto exposure */
-                    /*while(true)
+                    printf("Press '.' to take image\n");
+                    key = getchar();
+                    if (key == '.')
                     {
-                        int key = cv::waitKey(10);
-                        if((char)key == 'q')
+                        res = uvc_start_streaming(devh, &ctrl, cb, (void*)(&stop), 0);
+                        //res = uvc_start_streaming(devh, &ctrl, cb, 12345, 0);
+                        if (res < 0)
                         {
-                            break;
+                            uvc_perror(res, "start_streaming"); /* unable to start stream */
                         }
-                        if((char)key == 'g')
+                        else
                         {
-                            uvc_set_gain(devh, 25);
-                        }
-                    }*/
-                    //setLights(devh, 0);
+                            puts("Streaming...");
 
-                    /* End the stream. Blocks until last callback is serviced */
-                    uvc_stop_streaming(devh);
-                    puts("Done streaming.");
+                            sleep(1);
+
+                            // uvc_set_ae_mode(devh, 1); /* e.g., turn on auto exposure */
+                            /*while(true)
+                            {
+                                int key = cv::waitKey(10);
+                                if((char)key == 'q')
+                                {
+                                    break;
+                                }
+                                if((char)key == 'g')
+                                {
+                                    uvc_set_gain(devh, 25);
+                                }
+                            }*/
+                            //setLights(devh, 0);
+
+                            /* End the stream. Blocks until last callback is serviced */
+                            uvc_stop_streaming(devh);
+                            puts("Done streaming.");
+                        }
+                    }
+                    else if (key == ',')
+                    {
+                        break;
+                    }
                 }
             }
             /* Release our handle on the device */
