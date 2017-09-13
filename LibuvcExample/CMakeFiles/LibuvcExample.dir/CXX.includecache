@@ -1,0 +1,26 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/alastair/Development/LibuvcExample/LibuvcExample.cpp
+libuvc/libuvc.h
+/home/alastair/Development/LibuvcExample/libuvc/libuvc.h
+stdio.h
+-
+
+/usr/local/include/libuvc/libuvc.h
+stdio.h
+-
+stdint.h
+-
+sys/time.h
+-
+libuvc/libuvc_config.h
+-
+
+/usr/local/include/libuvc/libuvc_config.h
+

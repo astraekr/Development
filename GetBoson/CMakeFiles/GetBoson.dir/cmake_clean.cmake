@@ -1,5 +1,5 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/GetBoson.dir/main.cpp.o"
+  "CMakeFiles/GetBoson.dir/getboson.cpp.o"
   "GetBoson.pdb"
   "GetBoson"
 )

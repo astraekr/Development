@@ -123,32 +123,32 @@ GetBoson/fast:
 	$(MAKE) -f CMakeFiles/GetBoson.dir/build.make CMakeFiles/GetBoson.dir/build
 .PHONY : GetBoson/fast
 
-main.o: main.cpp.o
+getboson.o: getboson.cpp.o
 
-.PHONY : main.o
+.PHONY : getboson.o
 
 # target to build an object file
-main.cpp.o:
-	$(MAKE) -f CMakeFiles/GetBoson.dir/build.make CMakeFiles/GetBoson.dir/main.cpp.o
-.PHONY : main.cpp.o
+getboson.cpp.o:
+	$(MAKE) -f CMakeFiles/GetBoson.dir/build.make CMakeFiles/GetBoson.dir/getboson.cpp.o
+.PHONY : getboson.cpp.o
 
-main.i: main.cpp.i
+getboson.i: getboson.cpp.i
 
-.PHONY : main.i
+.PHONY : getboson.i
 
 # target to preprocess a source file
-main.cpp.i:
-	$(MAKE) -f CMakeFiles/GetBoson.dir/build.make CMakeFiles/GetBoson.dir/main.cpp.i
-.PHONY : main.cpp.i
+getboson.cpp.i:
+	$(MAKE) -f CMakeFiles/GetBoson.dir/build.make CMakeFiles/GetBoson.dir/getboson.cpp.i
+.PHONY : getboson.cpp.i
 
-main.s: main.cpp.s
+getboson.s: getboson.cpp.s
 
-.PHONY : main.s
+.PHONY : getboson.s
 
 # target to generate assembly for a file
-main.cpp.s:
-	$(MAKE) -f CMakeFiles/GetBoson.dir/build.make CMakeFiles/GetBoson.dir/main.cpp.s
-.PHONY : main.cpp.s
+getboson.cpp.s:
+	$(MAKE) -f CMakeFiles/GetBoson.dir/build.make CMakeFiles/GetBoson.dir/getboson.cpp.s
+.PHONY : getboson.cpp.s
 
 # Help Target
 help:
@@ -159,9 +159,9 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... GetBoson"
-	@echo "... main.o"
-	@echo "... main.i"
-	@echo "... main.s"
+	@echo "... getboson.o"
+	@echo "... getboson.i"
+	@echo "... getboson.s"
 .PHONY : help
 
 

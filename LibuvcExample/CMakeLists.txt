@@ -1,0 +1,15 @@
+cmake_minimum_required(VERSION 2.8)
+project(LibuvcExample)
+add_executable(${PROJECT_NAME} "LibuvcExample.cpp")
+find_package (OpenCV REQUIRED)
+find_package (libuvc REQUIRED)
+if (NOT libuvc_FOUND)
+    message(FATAL_ERROR "libuvc not found")
+endif (NOT libuvc_FOUND)
+
+message("${libuvc_LIBS}")
+message("${libuvc_LIBRARIES}")
+message("${libuvc_FOUND}")
+message("${OpenCV_LIBS}")
+
+target_link_libraries ( LibuvcExample ${OpenCV_LIBS} ${libuvc_LIBRARIES})

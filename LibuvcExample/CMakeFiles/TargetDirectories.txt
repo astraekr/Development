@@ -1,0 +1,3 @@
+/home/alastair/Development/LibuvcExample/CMakeFiles/edit_cache.dir
+/home/alastair/Development/LibuvcExample/CMakeFiles/rebuild_cache.dir
+/home/alastair/Development/LibuvcExample/CMakeFiles/LibuvcExample.dir

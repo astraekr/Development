@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-/home/alastair/Development/GetBoson/main.cpp
+/home/alastair/Development/GetBoson/getboson.cpp
 opencv2/opencv.hpp
 /home/alastair/Development/GetBoson/opencv2/opencv.hpp
 libuvc/libuvc.h

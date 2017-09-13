@@ -57,38 +57,38 @@ include CMakeFiles/GetBoson.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/GetBoson.dir/flags.make
 
-CMakeFiles/GetBoson.dir/main.cpp.o: CMakeFiles/GetBoson.dir/flags.make
-CMakeFiles/GetBoson.dir/main.cpp.o: main.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/alastair/Development/GetBoson/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/GetBoson.dir/main.cpp.o"
-	/usr/bin/g++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/GetBoson.dir/main.cpp.o -c /home/alastair/Development/GetBoson/main.cpp
+CMakeFiles/GetBoson.dir/getboson.cpp.o: CMakeFiles/GetBoson.dir/flags.make
+CMakeFiles/GetBoson.dir/getboson.cpp.o: getboson.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/alastair/Development/GetBoson/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/GetBoson.dir/getboson.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/GetBoson.dir/getboson.cpp.o -c /home/alastair/Development/GetBoson/getboson.cpp
 
-CMakeFiles/GetBoson.dir/main.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/GetBoson.dir/main.cpp.i"
-	/usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/alastair/Development/GetBoson/main.cpp > CMakeFiles/GetBoson.dir/main.cpp.i
+CMakeFiles/GetBoson.dir/getboson.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/GetBoson.dir/getboson.cpp.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/alastair/Development/GetBoson/getboson.cpp > CMakeFiles/GetBoson.dir/getboson.cpp.i
 
-CMakeFiles/GetBoson.dir/main.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/GetBoson.dir/main.cpp.s"
-	/usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/alastair/Development/GetBoson/main.cpp -o CMakeFiles/GetBoson.dir/main.cpp.s
+CMakeFiles/GetBoson.dir/getboson.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/GetBoson.dir/getboson.cpp.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/alastair/Development/GetBoson/getboson.cpp -o CMakeFiles/GetBoson.dir/getboson.cpp.s
 
-CMakeFiles/GetBoson.dir/main.cpp.o.requires:
+CMakeFiles/GetBoson.dir/getboson.cpp.o.requires:
 
-.PHONY : CMakeFiles/GetBoson.dir/main.cpp.o.requires
+.PHONY : CMakeFiles/GetBoson.dir/getboson.cpp.o.requires
 
-CMakeFiles/GetBoson.dir/main.cpp.o.provides: CMakeFiles/GetBoson.dir/main.cpp.o.requires
-	$(MAKE) -f CMakeFiles/GetBoson.dir/build.make CMakeFiles/GetBoson.dir/main.cpp.o.provides.build
-.PHONY : CMakeFiles/GetBoson.dir/main.cpp.o.provides
+CMakeFiles/GetBoson.dir/getboson.cpp.o.provides: CMakeFiles/GetBoson.dir/getboson.cpp.o.requires
+	$(MAKE) -f CMakeFiles/GetBoson.dir/build.make CMakeFiles/GetBoson.dir/getboson.cpp.o.provides.build
+.PHONY : CMakeFiles/GetBoson.dir/getboson.cpp.o.provides
 
-CMakeFiles/GetBoson.dir/main.cpp.o.provides.build: CMakeFiles/GetBoson.dir/main.cpp.o
+CMakeFiles/GetBoson.dir/getboson.cpp.o.provides.build: CMakeFiles/GetBoson.dir/getboson.cpp.o
 
 
 # Object files for target GetBoson
 GetBoson_OBJECTS = \
-"CMakeFiles/GetBoson.dir/main.cpp.o"
+"CMakeFiles/GetBoson.dir/getboson.cpp.o"
 
 # External object files for target GetBoson
 GetBoson_EXTERNAL_OBJECTS =
 
-GetBoson: CMakeFiles/GetBoson.dir/main.cpp.o
+GetBoson: CMakeFiles/GetBoson.dir/getboson.cpp.o
 GetBoson: CMakeFiles/GetBoson.dir/build.make
 GetBoson: /usr/local/lib/libopencv_shape.so.3.2.0
 GetBoson: /usr/local/lib/libopencv_stitching.so.3.2.0
@@ -116,7 +116,7 @@ CMakeFiles/GetBoson.dir/build: GetBoson
 
 .PHONY : CMakeFiles/GetBoson.dir/build
 
-CMakeFiles/GetBoson.dir/requires: CMakeFiles/GetBoson.dir/main.cpp.o.requires
+CMakeFiles/GetBoson.dir/requires: CMakeFiles/GetBoson.dir/getboson.cpp.o.requires
 
 .PHONY : CMakeFiles/GetBoson.dir/requires
 

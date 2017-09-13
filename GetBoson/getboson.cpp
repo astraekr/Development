@@ -46,8 +46,6 @@ void cb(uvc_frame_t *frame, void *stopPtr) {
     printf("Here\n");
 
     //bgr = uvc_allocate_frame(frame->width * frame->height * 3);
-
-
     //uvc_any2bgr(frame, bgr);
 
     Mat image (frame->height, frame->width, CV_16UC1, frame->data);
@@ -171,7 +169,6 @@ int main()
                     if (key == '.')
                     {
                         res = uvc_start_streaming(devh, &ctrl, cb, (void*)(&stop), 0);
-                        //res = uvc_start_streaming(devh, &ctrl, cb, 12345, 0);
                         if (res < 0)
                         {
                             uvc_perror(res, "start_streaming"); /* unable to start stream */
@@ -181,21 +178,6 @@ int main()
                             puts("Streaming...");
 
                             sleep(1);
-
-                            // uvc_set_ae_mode(devh, 1); /* e.g., turn on auto exposure */
-                            /*while(true)
-                            {
-                                int key = cv::waitKey(10);
-                                if((char)key == 'q')
-                                {
-                                    break;
-                                }
-                                if((char)key == 'g')
-                                {
-                                    uvc_set_gain(devh, 25);
-                                }
-                            }*/
-                            //setLights(devh, 0);
 
                             /* End the stream. Blocks until last callback is serviced */
                             uvc_stop_streaming(devh);
